@@ -1,0 +1,30 @@
+.books {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 100px;
+    margin: 0;
+}
+  
+@media screen and (max-width: 1580px) {
+    .books {
+      padding: 0 50px;
+    }
+}
+  
+@media screen and (max-width: 1280px) {
+    .books {
+      padding: 0 50px;
+    }
+}
+  
+@media screen and (max-width: 934px) {
+    .books {
+      padding: 0 30px;
+    }
+}
+  
+@media screen and (max-width: 760px) {
+    .books {
+      padding: 0 19px;
+    }
+}

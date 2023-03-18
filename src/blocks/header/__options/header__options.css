@@ -1,0 +1,14 @@
+.header__options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+  
+@media screen and (max-width: 628px) {
+    .header__options {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+}

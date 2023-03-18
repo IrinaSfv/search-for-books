@@ -1,0 +1,8 @@
+.book__cover {
+    width: 160px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    object-fit: cover;
+    display: block;
+    box-shadow: 10px 5px 5px #2A2C2F;
+}

@@ -1,0 +1,11 @@
+.book__title {
+    margin: 0 0 10px;
+    font-style: normal;
+    font-weight: 900;
+    color: #000;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

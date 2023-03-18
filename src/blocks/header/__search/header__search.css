@@ -1,0 +1,24 @@
+.header__search {
+    margin: 0 0 30px;
+    box-sizing: border-box;
+    background-color: #EBEBF1;
+    color: #000;
+    width: 690px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+  
+@media screen and (max-width: 934px) {
+    .header__search {
+      width: 100%;
+    }
+}
+  
+@media screen and (max-width: 628px) {
+    .header__search {
+      margin-bottom: 20px;
+    }
+}
