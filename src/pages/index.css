@@ -26,15 +26,96 @@
 @import url(../blocks/books/__counter/books__counter.css);
 @import url(../blocks/books/__list/books__list.css);
 @import url(../blocks/books/__card/books__card.css);
+@import url(../blocks/books/__loader-container/books__loader-container.css);
+@import url(../blocks/books/__loader/books__loader.css);
 
-/* Book */
-@import url(../blocks/book/book.css);
-@import url(../blocks/book/__cover/book__cover.css);
-@import url(../blocks/book/__info/book__info.css);
-@import url(../blocks/book/__category/book__category.css);
-@import url(../blocks/book/__title/book__title.css);
-@import url(../blocks/book/__authors/book__authors.css);
+/* BookCard */
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__cover/card__cover.css);
+@import url(../blocks/card/__info/card__info.css);
+@import url(../blocks/card/__category/card__category.css);
+@import url(../blocks/card/__authors/card__authors.css);
+@import url(../blocks/card/__title/card__title.css);
 
 /* Footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/* Other */
+@import url(../blocks/rotation/rotation.css);
+
+
+.book {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 100px;
+    margin: 0;
+  }
+    
+  @media screen and (max-width: 1580px) {
+    .book {
+      padding: 0 50px;
+    }
+  }
+    
+  @media screen and (max-width: 1280px) {
+    .book {
+      padding: 0 50px;
+    }
+  }
+    
+  @media screen and (max-width: 934px) {
+    .book {
+      padding: 0 30px;
+    }
+  }
+    
+  @media screen and (max-width: 760px) {
+    .book {
+      padding: 0 19px;
+    }
+  }
+
+.book__button-container {
+    padding: 0 0 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.book__button {
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ffb703;
+    padding: 8px 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 163%;
+    color: #000;
+}
+  
+.book__button:hover {
+    opacity: 0.5;
+}
+
+.book__container {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #EBEBF1;
+    color: #000;
+}
+
+.book__cover-container {
+    max-width: 500px;
+}
+
+.book__cover {
+    width: 100%;
+}
+  

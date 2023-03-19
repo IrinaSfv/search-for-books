@@ -1,4 +1,4 @@
-.book {
+.card {
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
@@ -13,6 +13,6 @@
     padding: 30px 15px;
 }
   
-.book:hover {
+.card:hover {
     box-shadow: 0 20px 10px -10px #ffb703 inset, 0 -20px 10px -10px #ffb703 inset;
 }

@@ -1,21 +1,25 @@
 import React from "react";
 import BookCard from "./BookCard";
 import LoadButton from "./LoadButton";
+import Loader from "./Loader";
 
-function BooksList({ bookCards, bookCount }) {
-    // if(loading) return <Loader />;
+function BooksList({ bookCards, bookCount, isLoading }) {
     return (
         <section className="books" aria-label="Books">
-            <h2 className="books__counter">Found {bookCount} results</h2>
+            {isLoading ? <Loader /> : (
+                <h2 className="books__counter">
+                    {bookCards ? `Found ${bookCount} results` : `Sorry, we didn't find anything`}
+                </h2>
+            )}
             <ul className="books__list">
-                {bookCards.map(item => {
+                {bookCards && bookCards.map((item, index) => {
                     return (
-                        <BookCard item={item} key={item.id} />
+                        <BookCard item={item} key={`${item.id}${index}`} />
                     )
-                }
+                    }
                 )}
             </ul>
-            <LoadButton />
+            {bookCards && bookCount > 30 ? <LoadButton /> : null}
         </section>
     );
   }

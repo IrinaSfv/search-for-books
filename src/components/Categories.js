@@ -1,14 +1,21 @@
 import React from "react";
 import { useState } from "react";
 
-function Categories() {
+function Categories({ onChangeCategoryValue, onSearch, searchQuery, sortValue, categoryValue }) {
     const [selectedValue, setSelectedValue] = useState('all');
 
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
+        if(e.target.value === 'all') {
+            onChangeCategoryValue('');
+            onSearch(searchQuery, sortValue, '');
+        } else {
+            onChangeCategoryValue(`+subject:${e.target.value}`);
+            onSearch(searchQuery, sortValue, `+subject:${e.target.value}`);
+        }
     }
 
-    return (
+    return ( 
         <div className="header__select-container header__categories">
             <label className="header__label header__categories-label" htmlFor="categories-select">Categories</label>
             <select className="header__select header__categories-select" value={selectedValue} onChange={handleChangeSelect} name="categories" id="categories-select">

@@ -1,0 +1,26 @@
+.books__loader-container {
+    width: 100%;
+    padding: 0 0 56px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1280px) {
+    .books__loader-container {
+      padding-bottom: 48px;
+    }
+}
+    
+@media screen and (max-width: 934px) {
+    .books__loader-container {
+        padding-bottom: 32px;
+    }
+}
+    
+@media screen and (max-width: 628px) {
+    .books__loader-container {
+        padding-bottom: 26px;
+    }
+}

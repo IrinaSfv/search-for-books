@@ -8,26 +8,47 @@ import Footer from "./Footer";
 function App() {
   const [bookCards, setBookCards] = useState([]);
   const [bookCount, setBookCount] = useState(0);
-  const [searchInitQuery, setSearchInitQuery] = useState('flowers');
+  const [searchQuery, setSearchQuery] = useState('javascript');
+  const [sortValue, setSortValue] = useState('relevance');
+  const [categoryValue, setCategoryValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    api.getInitialBooks(searchInitQuery)
+    findBooks(searchQuery, sortValue, categoryValue)
+  }, []);
+
+  function findBooks(query, order, category) {
+    setIsLoading(true);
+    api.getBooks(query, order, category)
     .then((res) => {
       console.log(res);
       setBookCards(res.items);
-      console.log(res.items);
       setBookCount(res.totalItems);
-      console.log(res.totalItems);
     })
     .catch((err) => {
       console.log(`${err}: couldn't load books`);
+    })
+    .finally(() => {
+      setIsLoading(false);
     });
-  }, []);
+  }
 
   return (
     <>
-      <Header onChangeBookCards={setBookCards} onChangeBookCount={setBookCount} />
-      <Main bookCards={bookCards} bookCount={bookCount} />
+      <Header 
+        onChangeSearchQuery={setSearchQuery}
+        onChangeSortValue={setSortValue}
+        onChangeCategoryValue={setCategoryValue}
+        onSearch={findBooks}
+        searchQuery={searchQuery} 
+        sortValue={sortValue} 
+        categoryValue={categoryValue}
+        />
+      <Main 
+        bookCards={bookCards} 
+        bookCount={bookCount} 
+        isLoading={isLoading}
+        />
       <Footer />
     </>
   );

@@ -1,9 +1,12 @@
-//SearchExample: https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=AIzaSyDIXwZf1d8tH58-IgrqMY5_OCoJtuV9xdA
+//SearchExample:
+//https://www.googleapis.com/books/v1/volumes?q=intitle:javascript+subject:computers&orderBy=newest&filter=partial&key=AIzaSyDIXwZf1d8tH58-IgrqMY5_OCoJtuV9xdA&maxResults=30
 
 class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
+        this._filter = options.filter;
         this._key = options.key;
+        this._maxResults = options.maxResults;
     }
   
     //Check the response from the server
@@ -16,16 +19,8 @@ class Api {
     }
 
     // 1. Loading books
-    getInitialBooks(query) {
-        return fetch(`${this._baseUrl}${query}${this._key}`, {
-            method: 'GET'
-        })
-        .then(this.checkResponse);
-    }
-
-    //2. Get books
-    getBooks(query) {
-        return fetch(`${this._baseUrl}${query}${this._key}`, {
+    getBooks(query, order, category) {
+        return fetch(`${this._baseUrl}q=intitle:${query}${category}&orderBy=${order}&filter=${this._filter}&key=${this._key}&maxResults=${this._maxResults}`, {
             method: 'GET'
         })
         .then(this.checkResponse);
@@ -33,8 +28,10 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://www.googleapis.com/books/v1/volumes?q=',
-    key: '&filter=free-ebooks&key=AIzaSyDIXwZf1d8tH58-IgrqMY5_OCoJtuV9xdA',
+    baseUrl: 'https://www.googleapis.com/books/v1/volumes?',
+    filter: 'partial',
+    key: 'AIzaSyDIXwZf1d8tH58-IgrqMY5_OCoJtuV9xdA',
+    maxResults: 30
 });
 
 export default api;

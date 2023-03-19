@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-function SortingOptions() {
+function SortingOptions({ onChangeSortValue, onSearch, searchQuery, sortValue, categoryValue }) {
     const [selectedValue, setSelectedValue] = useState('relevance');
 
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
+        onChangeSortValue(e.target.value);
+        onSearch(searchQuery, e.target.value, categoryValue);
     }
 
     return (

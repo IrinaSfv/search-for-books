@@ -3,13 +3,31 @@ import Searcher from "./Searcher";
 import Categories from "./Categories";
 import SortingOptions from "./SortingOptions";
 
-function SearchForm({ onChangeBookCards, onChangeBookCount }) {
+function SearchForm({ onChangeSearchQuery, onChangeSortValue, onChangeCategoryValue, onSearch, searchQuery, sortValue, categoryValue }) {
     return (
         <form className="header__form">
-            <Searcher onChangeBookCards={onChangeBookCards} onChangeBookCount={onChangeBookCount} />
+            <Searcher 
+                onChangeSearchQuery={onChangeSearchQuery} 
+                onSearch={onSearch}
+                searchQuery={searchQuery}
+                sortValue={sortValue}
+                categoryValue={categoryValue}
+            />
             <div className="header__options">
-                <Categories />
-                <SortingOptions />
+                <Categories 
+                    onChangeCategoryValue={onChangeCategoryValue}
+                    onSearch={onSearch}
+                    searchQuery={searchQuery}
+                    sortValue={sortValue}
+                    categoryValue={categoryValue}
+                />
+                <SortingOptions 
+                    onChangeSortValue={onChangeSortValue} 
+                    onSearch={onSearch}
+                    searchQuery={searchQuery}
+                    sortValue={sortValue}
+                    categoryValue={categoryValue}
+                />
             </div>
         </form>
     );
