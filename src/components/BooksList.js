@@ -3,7 +3,7 @@ import BookCard from "./BookCard";
 import LoadButton from "./LoadButton";
 import Loader from "./Loader";
 
-function BooksList({ bookCards, bookCount, isLoading }) {
+function BooksList({ bookCards, bookCount, isLoading, onBookCardClick }) {
     return (
         <section className="books" aria-label="Books">
             {isLoading ? <Loader /> : (
@@ -14,7 +14,7 @@ function BooksList({ bookCards, bookCount, isLoading }) {
             <ul className="books__list">
                 {bookCards && bookCards.map((item, index) => {
                     return (
-                        <BookCard item={item} key={`${item.id}${index}`} />
+                        <BookCard item={item} key={`${item.id}${index}`} onBookCardClick={onBookCardClick} />
                     )
                     }
                 )}

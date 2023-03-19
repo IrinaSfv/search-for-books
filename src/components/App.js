@@ -12,6 +12,7 @@ function App() {
   const [sortValue, setSortValue] = useState('relevance');
   const [categoryValue, setCategoryValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     findBooks(searchQuery, sortValue, categoryValue)
@@ -33,6 +34,10 @@ function App() {
     });
   }
 
+  function handleBookCardClick(bookItem) {
+    setSelectedCard(bookItem);
+  }
+
   return (
     <>
       <Header 
@@ -48,6 +53,8 @@ function App() {
         bookCards={bookCards} 
         bookCount={bookCount} 
         isLoading={isLoading}
+        bookItem={selectedCard}
+        onBookCardClick={handleBookCardClick}
         />
       <Footer />
     </>
