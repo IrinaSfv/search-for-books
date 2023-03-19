@@ -1,0 +1,12 @@
+.book__categories {
+    margin: 0 0 30px;
+    font-style: italic;
+    font-weight: 400;
+    color: #9A9B9C;
+}
+
+@media screen and (max-width: 760px) {
+    .book__categories {
+        margin: 0 0 16px;
+    }
+}

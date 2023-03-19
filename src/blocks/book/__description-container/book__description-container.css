@@ -1,0 +1,23 @@
+.book__description-container {
+    padding: 0 20px;
+    max-height: 250px;
+    overflow: scroll;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 20px 0 20px -20px #ffb703 inset, -20px 0 20px -20px #ffb703 inset;
+}
+
+@media screen and (max-width: 934px) {
+    .book__description-container {
+        max-height: 200px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .book__description-container {
+        overflow: auto;
+        max-height: 100%;
+        box-shadow: none;
+        padding: 0;
+    }
+}

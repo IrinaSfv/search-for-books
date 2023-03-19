@@ -1,0 +1,19 @@
+.book__info {
+    box-sizing: border-box;
+    padding: 40px 50px;
+    width: 50%;
+    font-size: 16px;
+    line-height: 163%;
+}
+
+@media screen and (max-width: 934px) {
+    .book__info {
+        padding: 20px 30px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .book__info {
+        width: 100%;
+    }
+}

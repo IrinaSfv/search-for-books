@@ -1,0 +1,19 @@
+.book__button {
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ffb703;
+    padding: 8px 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 163%;
+    color: #000;
+}
+
+.book__button:hover {
+    opacity: 0.5;
+}

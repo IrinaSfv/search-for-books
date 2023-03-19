@@ -1,27 +1,27 @@
 .books__card {
-    box-sizing: border-box;
-    width: 100%;
-    min-width: 283.2px;
-    height: 475px;
-    margin: 0;
-    list-style-type: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 283.2px;
+  height: 475px;
+  margin: 0;
+  list-style-type: none;
 }
   
 @media screen and (min-width: 1180px) and (max-width: 1280px) {
-    .books__card {
-      min-width: 100%;
-    }
+  .books__card {
+    min-width: 100%;
+  }
 }
   
 @media screen and (min-width: 760px) and (max-width: 934px) {
-    .books__card {
-      min-width: 100%;
-    }
+  .books__card {
+    min-width: 100%;
+  }
 }
   
 @media screen and (max-width: 628px) {
-    .books__card {
-      width: 282px;
-    }
+  .books__card {
+    width: 282px;
+  }
 }
   

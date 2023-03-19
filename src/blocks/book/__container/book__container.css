@@ -1,0 +1,14 @@
+.book__container {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #EBEBF1;
+    color: #000;
+}
+
+@media screen and (max-width: 760px) {
+    .book__container {
+        flex-direction: column;
+    }
+}

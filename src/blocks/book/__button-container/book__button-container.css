@@ -1,0 +1,17 @@
+.book__button-container {
+    padding: 0 0 40px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 934px) {
+    .book__button-container {
+        padding: 0 0 32px;
+    }
+}
+
+@media screen and (max-width: 628px) {
+    .book__button-container {
+        padding: 0 0 26px;
+    }
+}

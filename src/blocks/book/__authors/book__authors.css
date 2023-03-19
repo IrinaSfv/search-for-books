@@ -1,0 +1,19 @@
+.book__authors {
+    margin: 0;
+    margin-bottom: 48px;
+    font-style: normal;
+    font-weight: 500;
+    color: #9A9B9C;
+}
+
+@media screen and (max-width: 934px) {
+    .book__authors {
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .book__authors {
+        margin-bottom: 26px;
+    }
+}

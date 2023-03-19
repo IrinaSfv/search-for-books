@@ -1,0 +1,23 @@
+.book__cover-container {
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 50%;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(154, 155, 156, 0.5);
+}
+
+@media screen and (max-width: 934px) {
+    .book__cover-container {
+        padding: 20px 30px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .book__cover-container {
+        width: 100%;
+    }
+}
