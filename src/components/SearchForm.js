@@ -3,10 +3,10 @@ import Searcher from "./Searcher";
 import Categories from "./Categories";
 import SortingOptions from "./SortingOptions";
 
-function SearchForm() {
+function SearchForm({ onChangeBookCards, onChangeBookCount }) {
     return (
         <form className="header__form">
-            <Searcher />
+            <Searcher onChangeBookCards={onChangeBookCards} onChangeBookCount={onChangeBookCount} />
             <div className="header__options">
                 <Categories />
                 <SortingOptions />

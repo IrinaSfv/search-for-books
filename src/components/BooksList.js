@@ -2,15 +2,15 @@ import React from "react";
 import BookCard from "./BookCard";
 import LoadButton from "./LoadButton";
 
-function BooksList({ cards }) {
+function BooksList({ bookCards, bookCount }) {
     // if(loading) return <Loader />;
     return (
         <section className="books" aria-label="Books">
-            <h2 className="books__counter">Found 446 results</h2>
+            <h2 className="books__counter">Found {bookCount} results</h2>
             <ul className="books__list">
-                {cards.map(item => {
+                {bookCards.map(item => {
                     return (
-                        <BookCard card={item} key={item._id} />
+                        <BookCard item={item} key={item.id} />
                     )
                 }
                 )}

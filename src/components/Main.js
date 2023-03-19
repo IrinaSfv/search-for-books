@@ -1,10 +1,10 @@
 import React from "react";
 import BooksList from "./BooksList";
 
-function Main({ cards }) {
+function Main({ bookCards, bookCount }) {
     return (
         <main className="content page__content">
-            <BooksList cards={cards} />
+            <BooksList bookCards={bookCards} bookCount={bookCount} />
         </main>
     );
   }

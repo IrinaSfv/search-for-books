@@ -1,11 +1,18 @@
 import React from "react";
+import { useState } from "react";
 
 function Categories() {
+    const [selectedValue, setSelectedValue] = useState('all');
+
+    function handleChangeSelect(e) {
+        setSelectedValue(e.target.value);
+    }
+
     return (
         <div className="header__select-container header__categories">
-            <label className="header__label header__categories-label" for="categories-select">Categories</label>
-            <select className="header__select header__categories-select" name="categories" id="categories-select">
-                <option className="header__option" value="all" selected>All</option>
+            <label className="header__label header__categories-label" htmlFor="categories-select">Categories</label>
+            <select className="header__select header__categories-select" value={selectedValue} onChange={handleChangeSelect} name="categories" id="categories-select">
+                <option className="header__option" value="all">All</option>
                 <option className="header__option" value="art">Art</option>
                 <option className="header__option" value="biography">Biography</option>
                 <option className="header__option" value="computers">Computers</option>
