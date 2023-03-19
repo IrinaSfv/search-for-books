@@ -4,7 +4,7 @@
     overflow: scroll;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 20px 0 20px -20px #ffb703 inset, -20px 0 20px -20px #ffb703 inset;
+    box-shadow: 20px 0 20px -25px #ffb703 inset, -20px 0 20px -25px #ffb703 inset;
 }
 
 @media screen and (max-width: 934px) {

@@ -9,7 +9,7 @@ function BookCard({ item, onBookCardClick }) {
     }
 
     function getAuthors(authorsArr) {
-        if(authorsArr.length > 1) {
+        if (authorsArr.length > 1) {
             return authorsArr.join(', ');
         } else {
             return authorsArr[0];
@@ -20,9 +20,9 @@ function BookCard({ item, onBookCardClick }) {
         <li className="books__card">
             <Link className="books__link" to={`${item.id}`}>
                 <article className="card" id={item.id} onClick={handleClick} >
-                    <img 
-                        className="card__cover" 
-                        src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc} 
+                    <img
+                        className="card__cover"
+                        src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc}
                         alt="Book cover"
                     />
                     <div className="card__info">
@@ -39,6 +39,6 @@ function BookCard({ item, onBookCardClick }) {
         </li>
     );
 
-  }
-  
-  export default BookCard;
+}
+
+export default BookCard;

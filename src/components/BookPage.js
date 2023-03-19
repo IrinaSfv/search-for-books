@@ -10,11 +10,11 @@ function BookPage({ bookItem }) {
     navigate(-1);
   }
   
-  function getCategories(categotiesArr) {
-    if(categotiesArr.length > 1) {
-        return categotiesArr.join(' / ');
+  function getCategories(categoriesArr) {
+    if(categoriesArr.length > 1) {
+        return categoriesArr.join(' / ');
     } else {
-        return categotiesArr[0];
+        return categoriesArr[0];
     }
   }
 
@@ -26,10 +26,10 @@ function BookPage({ bookItem }) {
     }
   }
 
-  function getBigCover(cover) {
-    const bigCoverSrc = cover.replace('zoom=1', 'zoom=50')
-    return bigCoverSrc;
-  }
+  // function getBigCover(cover) {
+  //   const bigCoverSrc = cover.replace('zoom=5', 'zoom=10')
+  //   return bigCoverSrc;
+  // }
 
   return (
     <section className="book" aria-label="BookPage">
@@ -38,7 +38,7 @@ function BookPage({ bookItem }) {
       </div>
       <div className="book__container">
         <div className="book__cover-container">
-          <img className="book__cover" src={bookItem && bookItem.volumeInfo.imageLinks ? getBigCover(bookItem.volumeInfo.imageLinks.smallThumbnail) : emptyCoverSrc} alt="Book cover"/>
+          <img className="book__cover" src={bookItem && bookItem.volumeInfo.imageLinks ? bookItem.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc} alt="Book cover"/>
         </div>
         <div className="book__info">
           <p className="book__categories">
@@ -48,9 +48,11 @@ function BookPage({ bookItem }) {
           <p className="book__authors">
             {bookItem && bookItem.volumeInfo.authors ? getAuthors(bookItem.volumeInfo.authors) : 'Unknown author'}
           </p>
-          <div className="book__description-container">
-            <p className="book__description">{bookItem && bookItem.volumeInfo.description ? bookItem.volumeInfo.description : null}</p>
-          </div>
+          {bookItem && bookItem.volumeInfo.description ? (
+            <div className="book__description-container">
+              <p className="book__description">{bookItem.volumeInfo.description}</p>
+            </div>
+          ) : null}
         </div>
       </div>
       

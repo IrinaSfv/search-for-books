@@ -20,7 +20,7 @@ class Api {
 
     // 1. Loading books
     getBooks(query, order, category) {
-        return fetch(`${this._baseUrl}q=intitle:${query}${category}&orderBy=${order}&filter=${this._filter}&key=${this._key}&maxResults=${this._maxResults}`, {
+        return fetch(`${this._baseUrl}q=intitle:${query}${category}&orderBy=${order}&filter=${this._filter}&key=${this._key}&maxResults=${this._maxResults}&langRestrict=en`, {
             method: 'GET'
         })
         .then(this.checkResponse);
