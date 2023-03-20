@@ -1,24 +1,40 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import api from "../utils/Api";
+import api from "../api/Api";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
+//Redux
+import { useSelector, useDispatch } from "react-redux";
+import { setBook, setSearch } from "../redux/slices/booksSlice";
+// const dispatch = useDispatch();
+// const selectedBook = useSelector(state => state.books.selectedBook);
+
 function App() {
+  //BookCards
   const [bookCards, setBookCards] = useState([]);
   const [bookCount, setBookCount] = useState(0);
+  const [residualBookCount, setResidualBookCount] = useState(0);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const dispatch = useDispatch();
+  const query = useSelector(state => state.books.searchQuery);
+  console.log(query);
+  console.log(dispatch(setSearch('js')));
+  console.log(query);
+
+  //SearchQueries
   const [searchQuery, setSearchQuery] = useState('javascript');
   const [sortValue, setSortValue] = useState('relevance');
   const [categoryValue, setCategoryValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
   
+  //Pagination
   const [startIndexCard, setStartIndexCard] = useState(0);
   const [shownCardsNumber, setShownCardsNumber] = useState(30);
-  const [residualBookCount, setResidualBookCount] = useState(0);
-  const [loadButtonText, setLoadButtonText] = useState('Load more');
 
+  //Loading
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadButtonText, setLoadButtonText] = useState('Load more');
 
   useEffect(() => {
     findBooks(); 
