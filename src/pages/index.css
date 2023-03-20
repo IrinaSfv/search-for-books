@@ -29,6 +29,7 @@
 @import url(../blocks/books/__loader-container/books__loader-container.css);
 @import url(../blocks/books/__loader/books__loader.css);
 @import url(../blocks/books/__link/books__link.css);
+@import url(../blocks/books/__title-button/books__title-button.css);
 
 /* BookCard */
 @import url(../blocks/card/card.css);

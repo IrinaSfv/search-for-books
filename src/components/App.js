@@ -13,21 +13,41 @@ function App() {
   const [categoryValue, setCategoryValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  
+  const [startIndexCard, setStartIndexCard] = useState(0);
+  const [residualBookCount, setResidualBookCount] = useState(0);
+  const [loadButtonText, setLoadButtonText] = useState('Load more');
 
   useEffect(() => {
-    findBooks(searchQuery, sortValue, categoryValue)
+    findBooks(); 
   }, []);
 
-  function findBooks(query, order, category) {
+  function handleSearchClick(query) {
+    setSearchQuery(query);
+    findBooks();
+  }
+
+  function handleCategoryClick(category) {
+    setCategoryValue(category);
+    findBooks();
+  }
+
+  function handleSortClick(order) {
+    setSortValue(order);
+    findBooks();
+  }
+
+  function findBooks() { 
     setIsLoading(true);
-    api.getBooks(query, order, category)
+    api.getBooks(searchQuery, sortValue, categoryValue, startIndexCard)
     .then((res) => {
       console.log(res);
       setBookCards(res.items);
       setBookCount(res.totalItems);
+      setResidualBookCount(res.totalItems - res.items.length);
     })
     .catch((err) => {
-      console.log(`${err}: couldn't load books`);
+      console.log(`${err}: couldn't find books`);
     })
     .finally(() => {
       setIsLoading(false);
@@ -36,6 +56,28 @@ function App() {
 
   function handleBookCardClick(bookItem) {
     setSelectedCard(bookItem);
+  }
+
+  function loadNewBooks() {
+    setLoadButtonText('Loading...')
+    api.getBooks(searchQuery, sortValue, categoryValue, startIndexCard)
+    .then((res) => {
+      console.log(res);
+      setBookCards((prevValue) => prevValue.concat(res.items));
+    })
+    .catch((err) => {
+      console.log(`${err}: couldn't load new books`);
+    })
+    .finally(() => {
+      setLoadButtonText('Load more')
+    });
+  }
+
+  function hangleLoadClick() {
+    setStartIndexCard((prevValue) => prevValue + 30);
+    setResidualBookCount((prevValue) => prevValue - 30);
+    console.log(residualBookCount);
+    loadNewBooks();
   }
 
   return (
@@ -55,6 +97,9 @@ function App() {
         isLoading={isLoading}
         bookItem={selectedCard}
         onBookCardClick={handleBookCardClick}
+        onLoadClick={hangleLoadClick}
+        residualBookCount={residualBookCount}
+        loadButtonText={loadButtonText}
         />
       <Footer />
     </>

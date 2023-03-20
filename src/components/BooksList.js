@@ -3,7 +3,7 @@ import BookCard from "./BookCard";
 import LoadButton from "./LoadButton";
 import Loader from "./Loader";
 
-function BooksList({ bookCards, bookCount, isLoading, onBookCardClick }) {
+function BooksList({ bookCards, bookCount, isLoading, onBookCardClick, onLoadClick, residualBookCount, loadButtonText }) {
     return (
         <section className="books" aria-label="Books">
             {isLoading ? <Loader /> : (
@@ -19,7 +19,7 @@ function BooksList({ bookCards, bookCount, isLoading, onBookCardClick }) {
                     }
                 )}
             </ul>
-            {bookCards && bookCount > 30 ? <LoadButton /> : null}
+            {bookCards && residualBookCount > 0 ? <LoadButton onLoadClick={onLoadClick} residualBookCount={residualBookCount} loadButtonText={loadButtonText} /> : null}
         </section>
     );
   }

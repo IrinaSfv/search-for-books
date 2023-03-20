@@ -1,5 +1,5 @@
 //SearchExample:
-//https://www.googleapis.com/books/v1/volumes?q=intitle:javascript+subject:computers&orderBy=newest&filter=partial&key=AIzaSyDIXwZf1d8tH58-IgrqMY5_OCoJtuV9xdA&maxResults=30
+//https://www.googleapis.com/books/v1/volumes?q=intitle:javascript+subject:computers&orderBy=newest&filter=partial&key=AIzaSyDIXwZf1d8tH58-IgrqMY5_OCoJtuV9xdA&startIndex=0&maxResults=30
 
 class Api {
     constructor(options) {
@@ -19,8 +19,8 @@ class Api {
     }
 
     // 1. Loading books
-    getBooks(query, order, category) {
-        return fetch(`${this._baseUrl}q=intitle:${query}${category}&orderBy=${order}&filter=${this._filter}&key=${this._key}&maxResults=${this._maxResults}&langRestrict=en`, {
+    getBooks(query, order, category, startIndex) {
+        return fetch(`${this._baseUrl}q=intitle:${query}${category}&orderBy=${order}&filter=${this._filter}&key=${this._key}&startIndex=${startIndex}&maxResults=${this._maxResults}&langRestrict=en`, {
             method: 'GET'
         })
         .then(this.checkResponse);
