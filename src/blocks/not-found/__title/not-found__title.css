@@ -1,4 +1,4 @@
-.books__counter {
+.not-found__title {
     margin: 0;
     margin-bottom: 26px;
     text-align: center;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 628px) {
-    .books__counter {
+    .not-found__title {
         margin-bottom: 16px;
     }
 }

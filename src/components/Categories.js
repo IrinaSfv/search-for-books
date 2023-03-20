@@ -1,17 +1,15 @@
 import React from "react";
 import { useState } from "react";
 
-function Categories({ onChangeCategoryValue, onSearch, searchQuery, sortValue, categoryValue }) {
+function Categories({ onChangeCategoryValue }) {
     const [selectedValue, setSelectedValue] = useState('all');
 
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
         if(e.target.value === 'all') {
             onChangeCategoryValue('');
-            onSearch(searchQuery, sortValue, '');
         } else {
             onChangeCategoryValue(`+subject:${e.target.value}`);
-            onSearch(searchQuery, sortValue, `+subject:${e.target.value}`);
         }
     }
 

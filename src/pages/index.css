@@ -29,7 +29,7 @@
 @import url(../blocks/books/__loader-container/books__loader-container.css);
 @import url(../blocks/books/__loader/books__loader.css);
 @import url(../blocks/books/__link/books__link.css);
-@import url(../blocks/books/__title-button/books__title-button.css);
+@import url(../blocks/books/__caption-button/books__caption-button.css);
 
 /* BookCard */
 @import url(../blocks/card/card.css);
@@ -56,6 +56,11 @@
 /* Footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/* NotFound */
+@import url(../blocks/not-found/not-found.css);
+@import url(../blocks/not-found/__title/not-found__title.css);
+@import url(../blocks/not-found/__button/not-found__button.css);
 
 /* Other */
 @import url(../blocks/rotation/rotation.css);

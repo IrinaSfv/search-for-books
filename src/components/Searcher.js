@@ -1,26 +1,28 @@
 import React from "react";
+import { useState } from "react";
 
-function Searcher({ onChangeSearchQuery, onSearch, searchQuery, sortValue, categoryValue }) {
+function Searcher({ onChangeSearchQuery, searchQuery }) {
+    const [visibleValue, setVisibleValue] = useState(searchQuery);
 
-    function changeSearchQuery(e) {
-        onChangeSearchQuery(e.target.value);
+    function changeVisibleSearchQuery(e) {
+        setVisibleValue(e.target.value);
     }
 
     function handleEnterClick(e) {
         if(e.key === "Enter") {
             e.preventDefault(); 
-            onSearch(searchQuery, sortValue, categoryValue);
+            onChangeSearchQuery(visibleValue);
         }
     }
 
     function handleButtonClick(e) {
         e.preventDefault(); 
-        onSearch(searchQuery, sortValue, categoryValue)
+        onChangeSearchQuery(visibleValue);
     }
 
     return (
         <div className="header__search">
-            <input className="header__input" type="text" name="search" value={searchQuery} onChange={changeSearchQuery} onKeyDown={handleEnterClick} placeholder="Search for your book..." id="search-input" minLength="2" maxLength="40" />
+            <input className="header__input" type="text" name="search" value={visibleValue} onChange={changeVisibleSearchQuery} onKeyDown={handleEnterClick} placeholder="Search for your book..." id="search-input" minLength="2" maxLength="40" />
             <button className="header__search-button" type="submit" onClick={handleButtonClick}></button>
         </div>
     );

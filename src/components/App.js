@@ -15,26 +15,25 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   
   const [startIndexCard, setStartIndexCard] = useState(0);
+  const [shownCardsNumber, setShownCardsNumber] = useState(30);
   const [residualBookCount, setResidualBookCount] = useState(0);
   const [loadButtonText, setLoadButtonText] = useState('Load more');
 
+
   useEffect(() => {
     findBooks(); 
-  }, []);
+  }, [searchQuery, sortValue, categoryValue]);
 
-  function handleSearchClick(query) {
-    setSearchQuery(query);
-    findBooks();
+  function handleSearchClick(newQuery) {
+    setSearchQuery(newQuery);
   }
 
-  function handleCategoryClick(category) {
-    setCategoryValue(category);
-    findBooks();
+  function handleCategoryClick(newCategory) {
+    setCategoryValue(newCategory);
   }
 
-  function handleSortClick(order) {
-    setSortValue(order);
-    findBooks();
+  function handleSortClick(newOrder) {
+    setSortValue(newOrder);
   }
 
   function findBooks() { 
@@ -59,7 +58,7 @@ function App() {
   }
 
   function loadNewBooks() {
-    setLoadButtonText('Loading...')
+    setLoadButtonText('Loading...');
     api.getBooks(searchQuery, sortValue, categoryValue, startIndexCard)
     .then((res) => {
       console.log(res);
@@ -69,24 +68,22 @@ function App() {
       console.log(`${err}: couldn't load new books`);
     })
     .finally(() => {
-      setLoadButtonText('Load more')
+      setLoadButtonText('Load more');
     });
   }
 
   function hangleLoadClick() {
-    setStartIndexCard((prevValue) => prevValue + 30);
-    setResidualBookCount((prevValue) => prevValue - 30);
-    console.log(residualBookCount);
-    loadNewBooks();
+    setStartIndexCard((prevValue) => prevValue + shownCardsNumber);
+    setResidualBookCount((prevValue) => prevValue - shownCardsNumber);
+    loadNewBooks(); 
   }
 
   return (
     <>
       <Header 
-        onChangeSearchQuery={setSearchQuery}
-        onChangeSortValue={setSortValue}
-        onChangeCategoryValue={setCategoryValue}
-        onSearch={findBooks}
+        onChangeSearchQuery={handleSearchClick}
+        onChangeSortValue={handleSortClick}
+        onChangeCategoryValue={handleCategoryClick}
         searchQuery={searchQuery} 
         sortValue={sortValue} 
         categoryValue={categoryValue}
