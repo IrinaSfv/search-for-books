@@ -1,8 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setSearchQuery } from '../redux/slices/booksSlice'
 
-function Searcher({ onChangeSearchQuery, searchQuery }) {
+function Searcher() {
+    const searchQuery = useSelector(state => state.books.searchQuery);
     const [visibleValue, setVisibleValue] = useState(searchQuery);
+    const dispatch = useDispatch();
 
     function changeVisibleSearchQuery(e) {
         setVisibleValue(e.target.value);
@@ -11,13 +15,13 @@ function Searcher({ onChangeSearchQuery, searchQuery }) {
     function handleEnterClick(e) {
         if(e.key === "Enter") {
             e.preventDefault(); 
-            onChangeSearchQuery(visibleValue);
+            dispatch(setSearchQuery(visibleValue));
         }
     }
 
     function handleButtonClick(e) {
         e.preventDefault(); 
-        onChangeSearchQuery(visibleValue);
+        dispatch(setSearchQuery(visibleValue));
     }
 
     return (

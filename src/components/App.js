@@ -7,111 +7,81 @@ import Footer from "./Footer";
 
 //Redux
 import { useSelector, useDispatch } from "react-redux";
-import { setBook, setSearch } from "../redux/slices/booksSlice";
-// const dispatch = useDispatch();
-// const selectedBook = useSelector(state => state.books.selectedBook);
+import { setIsLoading, setBookCards, setBookQuantity, setResidualBookQuantity } from '../redux/slices/booksSlice'
 
 function App() {
-  //BookCards
-  const [bookCards, setBookCards] = useState([]);
-  const [bookCount, setBookCount] = useState(0);
-  const [residualBookCount, setResidualBookCount] = useState(0);
-  const [selectedCard, setSelectedCard] = useState(null);
   const dispatch = useDispatch();
-  const query = useSelector(state => state.books.searchQuery);
-  console.log(query);
-  console.log(dispatch(setSearch('js')));
-  console.log(query);
+
+  //BookCards
+  const bookCards = useSelector(state => state.books.bookCards);
+  const bookQuantity = useSelector(state => state.books.bookQuantity);
+  const residualBookQuantity = useSelector(state => state.books.paginationOptions.residualBookQuantity);
+  const selectedBook = useSelector(state => state.books.selectedBook);
 
   //SearchQueries
-  const [searchQuery, setSearchQuery] = useState('javascript');
-  const [sortValue, setSortValue] = useState('relevance');
-  const [categoryValue, setCategoryValue] = useState('');
-  
+  const searchQuery = useSelector(state => state.books.searchQuery);
+  const sortValue = useSelector(state => state.books.sortOptionValue);
+  const categoryValue = useSelector(state => state.books.categoryValue);
+
   //Pagination
   const [startIndexCard, setStartIndexCard] = useState(0);
-  const [shownCardsNumber, setShownCardsNumber] = useState(30);
+  const maxResults = useSelector(state => state.books.paginationOptions.maxResults);
 
   //Loading
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useSelector(state => state.books.isLoading);
   const [loadButtonText, setLoadButtonText] = useState('Load more');
 
   useEffect(() => {
     findBooks(); 
   }, [searchQuery, sortValue, categoryValue]);
 
-  function handleSearchClick(newQuery) {
-    setSearchQuery(newQuery);
-  }
-
-  function handleCategoryClick(newCategory) {
-    setCategoryValue(newCategory);
-  }
-
-  function handleSortClick(newOrder) {
-    setSortValue(newOrder);
-  }
-
   function findBooks() { 
-    setIsLoading(true);
+    dispatch(setIsLoading(true));
     api.getBooks(searchQuery, sortValue, categoryValue, startIndexCard)
     .then((res) => {
       console.log(res);
-      setBookCards(res.items);
-      setBookCount(res.totalItems);
-      setResidualBookCount(res.totalItems - res.items.length);
+      dispatch(setBookCards(res.items));
+      dispatch(setBookQuantity(res.totalItems));
+      dispatch(setResidualBookQuantity(res.totalItems - res.items.length));
     })
     .catch((err) => {
       console.log(`${err}: couldn't find books`);
     })
     .finally(() => {
-      setIsLoading(false);
+      dispatch(setIsLoading(false));
     });
   }
 
-  function handleBookCardClick(bookItem) {
-    setSelectedCard(bookItem);
-  }
+  // function loadNewBooks() {
+  //   setLoadButtonText('Loading...');
+  //   api.getBooks(searchQuery, sortValue, categoryValue, startIndexCard)
+  //   .then((res) => {
+  //     console.log(res);
+  //     setBookCards((prevValue) => prevValue.concat(res.items));
+  //   })
+  //   .catch((err) => {
+  //     console.log(`${err}: couldn't load new books`);
+  //   })
+  //   .finally(() => {
+  //     setLoadButtonText('Load more');
+  //   });
+  // }
 
-  function loadNewBooks() {
-    setLoadButtonText('Loading...');
-    api.getBooks(searchQuery, sortValue, categoryValue, startIndexCard)
-    .then((res) => {
-      console.log(res);
-      setBookCards((prevValue) => prevValue.concat(res.items));
-    })
-    .catch((err) => {
-      console.log(`${err}: couldn't load new books`);
-    })
-    .finally(() => {
-      setLoadButtonText('Load more');
-    });
-  }
-
-  function hangleLoadClick() {
-    setStartIndexCard((prevValue) => prevValue + shownCardsNumber);
-    setResidualBookCount((prevValue) => prevValue - shownCardsNumber);
-    loadNewBooks(); 
-  }
+  // function hangleLoadClick() {
+  //   setStartIndexCard((prevValue) => prevValue + maxResults);
+  //   dispatch(setResidualBookQuantity((prevValue) => prevValue - maxResults));
+  //   loadNewBooks(); 
+  // }
 
   return (
     <>
-      <Header 
-        onChangeSearchQuery={handleSearchClick}
-        onChangeSortValue={handleSortClick}
-        onChangeCategoryValue={handleCategoryClick}
-        searchQuery={searchQuery} 
-        sortValue={sortValue} 
-        categoryValue={categoryValue}
-        />
+      <Header />
       <Main 
         bookCards={bookCards} 
-        bookCount={bookCount} 
-        isLoading={isLoading}
-        bookItem={selectedCard}
-        onBookCardClick={handleBookCardClick}
+        bookCount={bookQuantity} 
+        bookItem={selectedBook}
         onLoadClick={hangleLoadClick}
-        residualBookCount={residualBookCount}
+        residualBookCount={residualBookQuantity}
         loadButtonText={loadButtonText}
         />
       <Footer />

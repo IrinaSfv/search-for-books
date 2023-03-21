@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setSortOptionValue } from '../redux/slices/booksSlice'
 
-function SortingOptions({ onChangeSortValue }) {
-    const [selectedValue, setSelectedValue] = useState('relevance');
+function SortingOptions() {
+    const sortValue = useSelector(state => state.books.sortOptionValue);
+    const [selectedValue, setSelectedValue] = useState(sortValue);
+    const dispatch = useDispatch();
 
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
-        onChangeSortValue(e.target.value);
+        dispatch(setSortOptionValue(e.target.value));
     }
 
     return (

@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import emptyCoverSrc from "../images/book__empty-cover.png";
+import { useDispatch } from "react-redux";
+import { setSelectedBook } from '../redux/slices/booksSlice'
 
-function BookCard({ item, onBookCardClick }) {
+function BookCard({ item }) {
+    const dispatch = useDispatch();
 
     function handleClick() {
-        onBookCardClick(item);
+        dispatch(setSelectedBook(item));
     }
 
     function getAuthors(authorsArr) {

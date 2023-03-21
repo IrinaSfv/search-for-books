@@ -1,15 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCategoryValue } from '../redux/slices/booksSlice'
 
-function Categories({ onChangeCategoryValue }) {
+function Categories() {
     const [selectedValue, setSelectedValue] = useState('all');
+    const dispatch = useDispatch();
 
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
         if(e.target.value === 'all') {
-            onChangeCategoryValue('');
+            dispatch(setCategoryValue(''));
         } else {
-            onChangeCategoryValue(`+subject:${e.target.value}`);
+            dispatch(setCategoryValue(`+subject:${e.target.value}`));
         }
     }
 

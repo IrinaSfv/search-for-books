@@ -1,37 +1,52 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setCategoryValue } from '../reducers/categoryValue';
-import { initialsearchQuery, searchQueryReducer } from '../reducers/searchQuery';
-import { setSortOptionValue } from '../reducers/sortOptionValue';
-import { setselectedBookReducer } from '../reducers/selecedBook';
+import { reduceCategoryValue } from '../reducers/categoryValueReducer'
+import { reduceSearchQuery } from '../reducers/searchQueryReducer';
+import { reduceSortOptionValue } from '../reducers/sortOptionValueReducer';
+import { reduceSelectedBook } from '../reducers/selecedBookReducer';
+import { reduceIsLoading } from '../reducers/isLoadingReducer';
+import { reduceBookCards } from '../reducers/bookCardsReducer';
+import { reduceBookQuantity } from '../reducers/bookQuantityReducer';
+import { reduceResidualBookQuantity } from '../reducers/residualBookQuantityReducer';
 
 export const initialState = {
     bookCards: [],
-    selectedBook: {},
-    pagination: {
+    bookQuantity: 0,
+    selectedBook: null,
+    paginationOptions: {
         startIndex: 0,
         maxResults: 30,
+        residualBookQuantity: 0,
     },
-    searchQuery: initialsearchQuery.searchQuery,
+    searchQuery: 'javascript',
     categoryValue: '',
     sortOptionValue: 'relevance',
+    isLoading: false,
 };
 
 export const booksSlice = createSlice({
     name: 'books',
     initialState,
     reducers: {
-        setSearch: searchQueryReducer,
-        setCategory: setCategoryValue,
-        setSortOption: setSortOptionValue,
-        setBook: setselectedBookReducer
+        setSearchQuery: reduceSearchQuery,
+        setCategoryValue: reduceCategoryValue,
+        setSortOptionValue: reduceSortOptionValue,
+        setSelectedBook: reduceSelectedBook,
+        setIsLoading: reduceIsLoading, 
+        setBookCards: reduceBookCards,
+        setBookQuantity: reduceBookQuantity,
+        setResidualBookQuantity: reduceResidualBookQuantity
     },
 });
 
 export const {
-    setSearch,
-    setCategory,
-    setSortOption,
-    setBook,
+    setSearchQuery,
+    setCategoryValue,
+    setSortOptionValue,
+    setSelectedBook,
+    setIsLoading,
+    setBookCards,
+    setBookQuantity,
+    setResidualBookQuantity
 } = booksSlice.actions;
 
 export default booksSlice.reducer;

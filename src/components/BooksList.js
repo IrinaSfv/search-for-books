@@ -2,8 +2,11 @@ import React from "react";
 import BookCard from "./BookCard";
 import LoadButton from "./LoadButton";
 import Loader from "./Loader";
+import { useSelector } from "react-redux";
 
-function BooksList({ bookCards, bookCount, isLoading, onBookCardClick, onLoadClick, residualBookCount, loadButtonText }) {
+function BooksList({ bookCards, bookCount, onLoadClick, residualBookCount, loadButtonText }) {
+    const isLoading = useSelector(state => state.books.isLoading);
+
     return (
         <section className="books" aria-label="Books">
             {isLoading ? <Loader /> : (
@@ -14,7 +17,7 @@ function BooksList({ bookCards, bookCount, isLoading, onBookCardClick, onLoadCli
             <ul className="books__list">
                 {bookCards && bookCards.map((item, index) => {
                     return (
-                        <BookCard item={item} key={`${item.id}${index}`} onBookCardClick={onBookCardClick} />
+                        <BookCard item={item} key={`${item.id}${index}`} />
                     )
                     }
                 )}
