@@ -18,7 +18,7 @@ export const initialState = {
         maxResults: 30,
         residualBookQuantity: 0,
     },
-    searchQuery: 'react',
+    searchQuery: 'js',
     categoryValue: '',
     sortOptionValue: 'relevance',
     isLoading: false,

@@ -1,0 +1,6 @@
+/* BooksList */
+@import url(../../assets/styles/blocks/books/books.css);
+@import url(../../assets/styles/blocks/books/__counter/books__counter.css);
+@import url(../../assets/styles/blocks/books/__list/books__list.css);
+@import url(../../assets/styles/blocks/books/__card/books__card.css);
+@import url(../../assets/styles/blocks/books/__link/books__link.css);

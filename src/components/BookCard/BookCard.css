@@ -1,0 +1,7 @@
+/* BookCard */
+@import url(../../assets/styles/blocks/card/card.css);
+@import url(../../assets/styles/blocks/card/__cover/card__cover.css);
+@import url(../../assets/styles/blocks/card/__info/card__info.css);
+@import url(../../assets/styles/blocks/card/__category/card__category.css);
+@import url(../../assets/styles/blocks/card/__authors/card__authors.css);
+@import url(../../assets/styles/blocks/card/__title/card__title.css);

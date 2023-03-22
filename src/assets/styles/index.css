@@ -1,0 +1,6 @@
+/* Major */
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+/* Page */
+@import url(./blocks/page/page.css);

@@ -1,15 +1,16 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import BooksList from "../components/BooksList";
+import Header from "../components/Header/Header";
+import Main from "../components/Main/Main";
+import Footer from "../components/Footer/Footer";
+import BooksList from "../components/BookList/BooksList";
 
 function HomePage() {
     return (
         <>
             <Header />
-            <main className="content page__content">
+            <Main>
                 <BooksList />
-            </main>
+            </Main>
             <Footer />
         </>
     );

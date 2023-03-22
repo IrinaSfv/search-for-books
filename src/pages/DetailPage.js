@@ -1,15 +1,16 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import BookPage from "../components/BookPage";
+import Header from "../components/Header/Header";
+import Main from "../components/Main/Main";
+import Footer from "../components/Footer/Footer";
+import BookPage from "../components/BookPage/BookPage";
 
 function DetailPage() {
     return (
         <>
             <Header />
-            <main className="content page__content">
+            <Main>
                 <BookPage />
-            </main>
+            </Main>
             <Footer />
         </>
     );

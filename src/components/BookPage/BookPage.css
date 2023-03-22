@@ -1,0 +1,13 @@
+/* BookPage */
+@import url(../../assets/styles/blocks/book/book.css);
+@import url(../../assets/styles/blocks/book/__button-container/book__button-container.css);
+@import url(../../assets/styles/blocks/book/__button/book__button.css);
+@import url(../../assets/styles/blocks/book/__container/book__container.css);
+@import url(../../assets/styles/blocks/book/__cover-container/book__cover-container.css);
+@import url(../../assets/styles/blocks/book/__cover/book__cover.css);
+@import url(../../assets/styles/blocks/book/__info/book__info.css);
+@import url(../../assets/styles/blocks/book/__categories/book__categories.css);
+@import url(../../assets/styles/blocks/book/__title/book__title.css);
+@import url(../../assets/styles/blocks/book/__authors/book__authors.css);
+@import url(../../assets/styles/blocks/book/__description-container/book__description-container.css);
+@import url(../../assets/styles/blocks/book/__description/book__description.css);
