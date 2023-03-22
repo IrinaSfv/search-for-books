@@ -8,7 +8,7 @@ import DetailPage from "../../pages/DetailPage";
 import NotFoundPage from "../../pages/NotFoundPage";
 //ReduxStates
 import { useSelector, useDispatch } from "react-redux";
-import { setIsLoading, setBookCards, setBookQuantity, setResidualBookQuantity } from '../../redux/slices/booksSlice'
+import { setIsLoading, setBookCards, setBookQuantity, setResidualBookQuantity } from '../../redux/slices/booksSlice';
 
 function App() {
   //BookToDisplay

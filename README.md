@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Search for books
+<div id="stackBadges">
+   <img src="https://img.shields.io/badge/-HTML5-red?style=for-the-badge&logo=HTML5&logoColor=white" alt="HTML5"/>
+   <img src="https://img.shields.io/badge/-CSS3-blue?style=for-the-badge&logo=CSS3&logoColor=white" alt="CSS3"/>
+   <img src="https://img.shields.io/badge/-JavaScript-yellow?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript"/>
+   <img src="https://img.shields.io/badge/-GIT-orange?style=for-the-badge&logo=Git&logoColor=white" alt="GIT"/>
+   <img src="https://img.shields.io/badge/-BEM-black?style=for-the-badge" alt="BEM"/>
+   <img src="https://img.shields.io/badge/-NPM-red?style=for-the-badge&logo=NPM&logoColor=white" alt="NPM"/>
+   <img src="https://img.shields.io/badge/-React-gray?style=for-the-badge&logo=React&logoColor=lightblue" alt="React"/>
+    <img src="https://img.shields.io/badge/-Redux-5920B1.svg?style=for-the-badge&logo=Redux&logoColor=white" alt="Redux"/>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Book search app with category and sorting selection.
 
-## Available Scripts
+## Functionality
+* The book search is performed by pressing `Enter` or pressing the search button.
+* Filtering by categories: _all_, _art_, _biography_, _computers_, _history_, _medical_, _poetry_.
+* Sorting by _relevance_ and _newest_.
+* Number of books found and the number of books that can be loaded is displayed above the block of cards and above the load button. 
+* When loading books the load spinner appears and the text on the load button changes. 
+* Pagination is realized by __load more__ principle when user clicks on the button under the loaded cards.
 
-In the project directory, you can run:
+## Pages
+* `Home page`: opens by default and this page is redirected to if the user entered a request other than from the home page.
+* `Detail page`: when user clicks on a book card they goes to a detailed page of the book. 
+* `Page not found`: if book page doesn't exist, user will be redirected to the 404 error page. 
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In this project, I've:
+* made the page adaptive for different devices from mobile __320px__ to large screens __1920px__, 
+* used the BEM methodology working with layout and the Nested file structure,
+* organized the storage modularly with ReduxSlice, 
+* put all Redux reducers in separate files, 
+* followed the security rules and put the API key in the `.env` file. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
+* Run `GitBash` (or `Terminal` on MacOS);
+* Select or create a new repository where you want to put the project;
+* Run the command: `git clone https://github.com/IrinaSfv/search-for-books.git`;
+* Run the command: `npm install`;
+* Open the project with the command: `npm start`.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Usage
+You can view the current version of the page by following the link:
+### [Search for books](https://irinasfv.github.io)
