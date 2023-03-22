@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/search-for-books/static/css/main.ae948d52.css",
+    "main.js": "/search-for-books/static/js/main.86eb9800.js",
+    "static/js/787.28cb0dcd.chunk.js": "/search-for-books/static/js/787.28cb0dcd.chunk.js",
+    "static/media/header__background.png": "/search-for-books/static/media/header__background.eef5dc663eea2311c5c7.png",
+    "static/media/Inter-Medium.woff": "/search-for-books/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff": "/search-for-books/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/search-for-books/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/search-for-books/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2": "/search-for-books/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2": "/search-for-books/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/book__empty-cover.png": "/search-for-books/static/media/book__empty-cover.8c3c77f53124bb8056cd.png",
+    "static/media/books__loader.svg": "/search-for-books/static/media/books__loader.10215b8bde9ac4ebc86a8d12b7af22d4.svg",
+    "static/media/header__search.svg": "/search-for-books/static/media/header__search.89531ba339dbb6b2b628.svg",
+    "index.html": "/search-for-books/index.html",
+    "main.ae948d52.css.map": "/search-for-books/static/css/main.ae948d52.css.map",
+    "main.86eb9800.js.map": "/search-for-books/static/js/main.86eb9800.js.map",
+    "787.28cb0dcd.chunk.js.map": "/search-for-books/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae948d52.css",
+    "static/js/main.86eb9800.js"
+  ]
+}
