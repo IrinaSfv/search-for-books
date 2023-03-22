@@ -8,7 +8,7 @@ class Api {
         this._key = options.key;
         this._maxResults = options.maxResults;
     }
-  
+
     //Check the response from the server
     checkResponse(res) {
         if (res.ok) {
@@ -19,7 +19,7 @@ class Api {
     }
 
     // 1. Loading books
-    getBooks(query, order, category, startIndex) {
+    getBooks(query, category, order, startIndex) {
         return fetch(`${this._baseUrl}q=intitle:${query}${category}&orderBy=${order}&filter=${this._filter}&key=${this._key}&startIndex=${startIndex}&maxResults=${this._maxResults}&langRestrict=en`, {
             method: 'GET'
         })

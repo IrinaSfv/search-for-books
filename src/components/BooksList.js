@@ -4,14 +4,18 @@ import LoadButton from "./LoadButton";
 import Loader from "./Loader";
 import { useSelector } from "react-redux";
 
-function BooksList({ bookCards, bookCount, onLoadClick, residualBookCount, loadButtonText }) {
+function BooksList({ onLoadClick }) {
+    const bookCards = useSelector(state => state.books.bookCards);
+    const bookQuantity = useSelector(state => state.books.bookQuantity);
+    const residualBookQuantity = useSelector(state => state.books.paginationOptions.residualBookQuantity);
     const isLoading = useSelector(state => state.books.isLoading);
+    console.log(residualBookQuantity)
 
     return (
         <section className="books" aria-label="Books">
             {isLoading ? <Loader /> : (
                 <h2 className="books__counter">
-                    {bookCards ? `Found ${bookCount} results` : `Sorry, we didn't find anything`}
+                    {bookCards ? `Found ${bookQuantity} results` : `Sorry, we didn't find anything`}
                 </h2>
             )}
             <ul className="books__list">
@@ -22,7 +26,7 @@ function BooksList({ bookCards, bookCount, onLoadClick, residualBookCount, loadB
                     }
                 )}
             </ul>
-            {bookCards && residualBookCount > 0 ? <LoadButton onLoadClick={onLoadClick} residualBookCount={residualBookCount} loadButtonText={loadButtonText} /> : null}
+            {bookCards && residualBookQuantity > 0 ? <LoadButton onLoadClick={onLoadClick} /> : null}
         </section>
     );
   }

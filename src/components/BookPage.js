@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import emptyCoverSrc from "../images/book__empty-cover.png";
+import { useSelector } from "react-redux";
 
-function BookPage({ bookItem }) {
-
+function BookPage() {
+  const bookItem = useSelector(state => state.books.selectedBook);
   const navigate = useNavigate(); 
 
   function handleButtonClick() {

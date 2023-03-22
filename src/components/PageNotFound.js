@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 function PageNotFound () {
     return (
       <section className="not-found" aria-label="NotFound">
-        <h2 className="not-found__title"> 404 - Page Not Found</h2>
+        <h2 className="not-found__title"> Oops.. this page doesn't exist!</h2>
         <Link className="not-found__link" to="/">
-            <button className="not-found__button">Try Main Page</button>
+            <button className="not-found__button">Try Home Page</button>
         </Link>
       </section>
     )
