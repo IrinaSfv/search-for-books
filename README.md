@@ -43,4 +43,4 @@ In this project, I've:
 
 ## Usage
 You can view the current version of the page by following the link:
-### [Search for books](https://irinasfv.github.io)
+### [Search for books](https://irinasfv.github.io/search-for-books/)

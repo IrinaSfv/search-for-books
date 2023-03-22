@@ -12,6 +12,7 @@
     font-size: 16px;
     line-height: 163%;
     color: #000;
+    transition: 0.2s;
 }
 
 .not-found__button:hover {

@@ -3,12 +3,3 @@
 @import url(../../assets/styles/blocks/header/__input/header__input.css);
 @import url(../../assets/styles/blocks/header/__search-button/header__search-button.css);
 @import url(../../assets/styles/blocks/header/__search-button/_disabled/header__search-button_disabled.css);
-
-.header__link {
-    text-decoration: none;
-    background-color: transparent;
-    color: transparent;
-    display: block;
-    width: 100px;
-    height: 100%;
-}

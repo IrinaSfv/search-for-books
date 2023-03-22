@@ -1,4 +1,9 @@
 .header__label {
     margin: 0 10px 0 0;
     width: 83px;
+    cursor: pointer;
+}
+
+.header__label:hover {
+    opacity: 0.5;
 }
