@@ -1,5 +1,5 @@
 .header__search-button_disabled {
-    background-color: #9A9B9C;
+    background-color: rgba(255, 183, 3, 0.5);
     cursor: auto;
 }
 

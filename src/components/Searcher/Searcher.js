@@ -20,7 +20,7 @@ function Searcher() {
 
     //Go to the main page if not
     function goHomePage() {
-        if (currentLocation !== '/') {
+        if (currentLocation.pathname !== '/') {
             navigate('/');
         }
     }
@@ -35,7 +35,7 @@ function Searcher() {
 
     //Send a new request to the server with a new search query
     function handleEnterClick(e) {
-        if (e.key === "Enter") {
+        if (visibleValue && e.key === "Enter") {
             e.preventDefault();
             goHomePage();
             dispatch(setSearchQuery(visibleValue));

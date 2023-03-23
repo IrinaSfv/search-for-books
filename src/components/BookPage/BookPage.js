@@ -3,21 +3,35 @@ import React from "react";
 import './BookPage.css';
 import emptyCoverSrc from "../../images/book__empty-cover.png";
 //Navigation
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 //ReduxStates
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedBook } from '../../redux/slices/booksSlice'
 
 function BookPage() {
+  //Current location
+  const currentLocation = useLocation();
   //BookToDisplay
   const bookItem = useSelector(state => state.books.selectedBook);
 
   //Go through the pages
   const navigate = useNavigate();
 
+  // Change states
+  const dispatch = useDispatch();
+
   //Take the user back one step
   function handleBackButtonClick() {
     navigate(-1);
   }
+
+  useEffect(() => {
+    if (currentLocation.pathname !== `/${bookItem.id}`) {
+      dispatch(setSelectedBook(null));
+    }
+  }, [currentLocation]);
+
 
   //Set the display of the list of categories, separated by "/"
   function getCategories(categoriesArr) {
@@ -43,7 +57,7 @@ function BookPage() {
 
   //Set the picture of the book cover to a larger size
   // function getBigCover(cover) {
-  //   const bigCoverSrc = cover.replace('zoom=5', 'zoom=10')
+  //   const bigCoverSrc = cover.replace('zoom=5', 'zoom=4')
   //   return bigCoverSrc;
   // }
 
@@ -54,7 +68,7 @@ function BookPage() {
       </div>
       <div className="book__container">
         <div className="book__cover-container">
-          <img className="book__cover" src={bookItem && bookItem.volumeInfo.imageLinks ? bookItem.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc} alt="Book cover" />
+          <img className="book__cover" src={bookItem && bookItem.volumeInfo.imageLinks ? "https://books.google.com/books/publisher/content/images/frontcover/" + bookItem.id + "?fife=w400-h600&source=gbs_api" : emptyCoverSrc} alt="Book cover" />
         </div>
         <div className="book__info">
           <p className="book__categories">
@@ -78,3 +92,5 @@ function BookPage() {
 }
 
 export default BookPage;
+
+//src={bookItem && bookItem.volumeInfo.imageLinks ? bookItem.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc}

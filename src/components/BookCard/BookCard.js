@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import './BookCard.css';
 import emptyCoverSrc from "../../images/book__empty-cover.png";
 //ReduxStates
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setSelectedBook } from '../../redux/slices/booksSlice'
 
 function BookCard({ item }) {
+
+    //BookToDisplay
+    const selectedBook = useSelector(state => state.books.selectedBook);
     //Change states
     const dispatch = useDispatch();
 
@@ -30,11 +33,13 @@ function BookCard({ item }) {
         <li className="books__card">
             <Link className="books__link" to={`${item.id}`}>
                 <article className="card" id={item.id} onClick={handleCardClick} >
-                    <img
-                        className="card__cover"
-                        src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc}
-                        alt="Book cover"
-                    />
+                    <div className="card__cover-container">
+                        <img
+                            className="card__cover"
+                            src={item.volumeInfo.imageLinks ? "https://books.google.com/books/publisher/content/images/frontcover/" + item.id + "?fife=w200-h300&source=gbs_api" : emptyCoverSrc}
+                            alt="Book cover"
+                        />
+                    </div>
                     <div className="card__info">
                         <p className="card__category">
                             {item.volumeInfo.categories ? item.volumeInfo.categories[0] : 'No category'}
@@ -52,3 +57,5 @@ function BookCard({ item }) {
 }
 
 export default BookCard;
+
+// src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc}
