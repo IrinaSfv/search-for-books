@@ -1,31 +1,32 @@
 import React from "react";
-//StylesAndContent
+// StylesAndContent
 import './BookPage.css';
 import emptyCoverSrc from "../../images/book__empty-cover.png";
-//Navigation
+// Navigation
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-//ReduxStates
+// ReduxStates
 import { useSelector, useDispatch } from "react-redux";
 import { setSelectedBook } from '../../redux/slices/booksSlice'
 
 function BookPage() {
-  //Current location
+  // Current location
   const currentLocation = useLocation();
-  //BookToDisplay
+  // BookToDisplay
   const bookItem = useSelector(state => state.books.selectedBook);
 
-  //Go through the pages
+  // Go through the pages
   const navigate = useNavigate();
 
   // Change states
   const dispatch = useDispatch();
 
-  //Take the user back one step
+  // Take the user back one step
   function handleBackButtonClick() {
     navigate(-1);
   }
 
+  // Reset the selectedBook if user leaves this page
   useEffect(() => {
     if (currentLocation.pathname !== `/${bookItem.id}`) {
       dispatch(setSelectedBook(null));
@@ -33,7 +34,7 @@ function BookPage() {
   }, [currentLocation]);
 
 
-  //Set the display of the list of categories, separated by "/"
+  // Set the display of the list of categories, separated by "/"
   function getCategories(categoriesArr) {
     if (categoriesArr.length > 1) {
       return categoriesArr.join(' / ');
@@ -42,7 +43,7 @@ function BookPage() {
     }
   }
 
-  //Set the display of the list of authors, separated by commas
+  // Set the display of the list of authors, separated by commas
   function getAuthors(authorsArr) {
     if (authorsArr.length > 1) {
       return authorsArr.join(', ');
@@ -51,15 +52,14 @@ function BookPage() {
     }
   }
 
-  //TODO: The Google is now replacing large covers with universal covers. 
-  //To make the covers visible on book pages, I made following method inactive. 
-  //In the future I plan to set links to good quality covers here
-
-  //Set the picture of the book cover to a larger size
-  // function getBigCover(cover) {
-  //   const bigCoverSrc = cover.replace('zoom=5', 'zoom=4')
-  //   return bigCoverSrc;
-  // }
+  // Set the picture of the book cover to a larger size
+  function getBigCoverSrc(bookId) {
+    //const bigCoverSrc = cover.replace('zoom=5', 'zoom=4');
+    // Google is now replacing large covers with universal covers 
+    // if you take the image out of the '.volumeInfo.imageLinks' and change the zoom
+    const bigCoverSrc = `https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w400-h600&source=gbs_api`
+    return bigCoverSrc;
+  }
 
   return (
     <section className="book" aria-label="BookPage">
@@ -68,7 +68,7 @@ function BookPage() {
       </div>
       <div className="book__container">
         <div className="book__cover-container">
-          <img className="book__cover" src={bookItem && bookItem.volumeInfo.imageLinks ? "https://books.google.com/books/publisher/content/images/frontcover/" + bookItem.id + "?fife=w400-h600&source=gbs_api" : emptyCoverSrc} alt="Book cover" />
+          <img className="book__cover" src={bookItem && bookItem.volumeInfo.imageLinks ? getBigCoverSrc(bookItem.id) : emptyCoverSrc} alt="Book cover" />
         </div>
         <div className="book__info">
           <p className="book__categories">
@@ -85,12 +85,8 @@ function BookPage() {
           ) : null}
         </div>
       </div>
-
-
     </section>
   );
 }
 
 export default BookPage;
-
-//src={bookItem && bookItem.volumeInfo.imageLinks ? bookItem.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc}

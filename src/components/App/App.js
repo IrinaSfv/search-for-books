@@ -1,21 +1,19 @@
 import React from "react";
 import { useEffect } from "react";
 import api from "../../api/Api";
-//Routes
+// Routes
 import { Routes, Route } from 'react-router-dom';
 import HomePage from "../../pages/HomePage";
 import DetailPage from "../../pages/DetailPage";
 import NotFoundPage from "../../pages/NotFoundPage";
-//ReduxStates
+// ReduxStates
 import { useSelector, useDispatch } from "react-redux";
-import { setIsLoading, setBookCards, setBookQuantity, setResidualBookQuantity, setSelectedBook } from '../../redux/slices/booksSlice';
+import { setIsLoading, setBookCards, setBookQuantity, setResidualBookQuantity } from '../../redux/slices/booksSlice';
 
 function App() {
-
-  const bookCards = useSelector(state => state.books.bookCards);
-  // BookToDisplay
+  // Book to display on the othe page
   const selectedBook = useSelector(state => state.books.selectedBook);
-  // SearchQueries
+  // Search Queries
   const searchQuery = useSelector(state => state.books.searchQuery);
   const sortValue = useSelector(state => state.books.sortOptionValue);
   const categoryValue = useSelector(state => state.books.categoryValue);
@@ -52,40 +50,18 @@ function App() {
   // Takes an array of books and returns an array of unique books.
   // This is to avoid loading books with the same ID on the page 
   //function eliminateDuplicatesById(items) {
-  //   const uniqueIds = [];
-  //   const uniqueBookCards = items.map(item => {
-  //     if (!uniqueIds.includes(item.id)) {
-  //       uniqueIds.push(item.id);
-  //       return item;
-  //     }
-  //   }
-  //   )
-  //   // TODO: this method should redefine not only the new array of books,
-  //   // but also the new bookQuantity and residualBookQuantity
-  //   return uniqueBookCards;
+  //  const uniqueIds = [];
+  //  const uniqueBookCards = items.map(item => {
+  //    if (!uniqueIds.includes(item.id)) {
+  //      uniqueIds.push(item.id);
+  //      return item;
+  //    }
+  //  }
+  //  )
+  //    TODO: this method should redefine not only the new array of unique books,
+  //    but also the new bookQuantity and residualBookQuantity
+  //  return uniqueBookCards;
   //}
-
-  // function checkBookId(params) {
-  //   console.log(params)
-  //   const { bookId } = params;
-  //   console.log(bookId)
-  //   if (!selectedBook || selectedBook.id != bookId) {
-  //     console.log(selectedBook)
-  //     if (bookCards) {
-  //       console.log(bookCards)
-  //       const bookToShow = bookCards.find((item) => item.id === bookId);
-  //       if (bookToShow) {
-  //         console.log(bookToShow)
-  //         dispatch(setSelectedBook(bookToShow));
-  //         return true;
-  //       }
-  //     }
-  //     return false;
-  //   } else {
-  //     console.log(selectedBook)
-  //     return true;
-  //   }
-  // }
 
   return (
     <>
@@ -99,5 +75,3 @@ function App() {
 }
 
 export default App;
-
-//<Route path="/:bookId" element={selectedBook ? <DetailPage /> : <NotFoundPage />} />

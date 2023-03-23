@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './assets/styles/index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
-
-//Routes
+// Routes
 import { HashRouter } from 'react-router-dom';
-
-//Redux
+// Redux
 import { Provider } from 'react-redux';
 import store from './redux/store/store';
 

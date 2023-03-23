@@ -1,32 +1,37 @@
 import React from "react";
-//Navigation
+// Navigation
 import { Link } from 'react-router-dom';
-//StylesAndContent
+// StylesAndContent
 import './BookCard.css';
 import emptyCoverSrc from "../../images/book__empty-cover.png";
-//ReduxStates
-import { useSelector, useDispatch } from "react-redux";
+// ReduxStates
+import { useDispatch } from "react-redux";
 import { setSelectedBook } from '../../redux/slices/booksSlice'
 
 function BookCard({ item }) {
-
-    //BookToDisplay
-    const selectedBook = useSelector(state => state.books.selectedBook);
-    //Change states
+    // Change states
     const dispatch = useDispatch();
 
-    //Set the card to display on a other page
+    // Set the card to display on a other page
     function handleCardClick() {
         dispatch(setSelectedBook(item));
     }
 
-    //Set the display of the list of authors, separated by commas
+    // Set the display of the list of authors, separated by commas
     function getAuthors(authorsArr) {
         if (authorsArr.length > 1) {
             return authorsArr.join(', ');
         } else {
             return authorsArr[0];
         }
+    }
+
+    // Get the picture of the book cover in small size
+    function getSmallCoverSrc(bookId) {
+        // Google is now gives pictures of bad quality
+        // if you take the image out of the '.volumeInfo.imageLinks.smallThumbnail'
+        const smallCoverSrc = `https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w200-h300&source=gbs_api`
+        return smallCoverSrc;
     }
 
     return (
@@ -36,7 +41,7 @@ function BookCard({ item }) {
                     <div className="card__cover-container">
                         <img
                             className="card__cover"
-                            src={item.volumeInfo.imageLinks ? "https://books.google.com/books/publisher/content/images/frontcover/" + item.id + "?fife=w200-h300&source=gbs_api" : emptyCoverSrc}
+                            src={item.volumeInfo.imageLinks ? getSmallCoverSrc(item.id) : emptyCoverSrc}
                             alt="Book cover"
                         />
                     </div>
@@ -57,5 +62,3 @@ function BookCard({ item }) {
 }
 
 export default BookCard;
-
-// src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.smallThumbnail : emptyCoverSrc}

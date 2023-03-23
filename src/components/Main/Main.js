@@ -1,5 +1,5 @@
 import React from "react";
-//StylesAndContent
+// StylesAndContent
 import './Main.css';
 
 function Main({ children }) {

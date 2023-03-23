@@ -1,19 +1,19 @@
 import React from "react";
 import { useState } from "react";
-//StylesAndContent
+// StylesAndContent
 import './Categories.css';
-//ReduxStates
+// ReduxStates
 import { useDispatch } from "react-redux";
 import { setCategoryValue } from '../../redux/slices/booksSlice'
 
 function Categories() {
-    //Value for display on the page
+    // Value for display on the page
     const [selectedValue, setSelectedValue] = useState('all');
 
-    //Change states
+    // Change states
     const dispatch = useDispatch();
 
-    //Change the value on the page and send a new request to the server with a new category
+    // Change the value on the page and send a new request to the server with a new category
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
         if (e.target.value === 'all') {

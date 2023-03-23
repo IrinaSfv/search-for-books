@@ -1,9 +1,9 @@
 import React from "react";
-//StylesAndContent
+// StylesAndContent
 import './Footer.css';
 
 function Footer() {
-  //Current value of the year
+  // Current value of the year
   const currentYear = new Date().getFullYear();
 
   return (

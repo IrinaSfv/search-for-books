@@ -1,5 +1,5 @@
 //SearchExample:
-//https://www.googleapis.com/books/v1/volumes?q=intitle:javascript+subject:computers&orderBy=newest&filter=partial&key=APIKEY&startIndex=0&maxResults=30
+//https://www.googleapis.com/books/v1/volumes?q=intitle:javascript+subject:computers&orderBy=newest&filter=partial&key=API_KEY&startIndex=0&maxResults=30
 
 class Api {
     constructor(options) {
@@ -30,7 +30,7 @@ class Api {
 const api = new Api({
     baseUrl: 'https://www.googleapis.com/books/v1/volumes?',
     filter: 'partial',
-    maxResults: 30, 
+    maxResults: 30,
     key: process.env.REACT_APP_API_KEY,
 });
 

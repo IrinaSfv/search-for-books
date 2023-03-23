@@ -1,5 +1,5 @@
 import React from "react";
-//StylesAndContent
+// StylesAndContent
 import loader from "../../images/books__loader.svg"
 import './Loader.css';
 

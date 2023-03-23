@@ -2,7 +2,7 @@ import React from "react";
 import Searcher from "../Searcher/Searcher";
 import Categories from "../Categories/Categories";
 import SortingOptions from "../SortingOptions/SortingOptions";
-//StylesAndContent
+// StylesAndContent
 import './SearchForm.css';
 
 function SearchForm() {

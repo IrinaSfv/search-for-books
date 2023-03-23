@@ -2,17 +2,17 @@ import React from "react";
 import BookCard from "../BookCard/BookCard";
 import LoadButton from "../LoadButton/LoadButton";
 import Loader from "../Loader/Loader";
-//StylesAndContent
+// StylesAndContent
 import './BookList.css';
-//ReduxStates
+// ReduxStates
 import { useSelector } from "react-redux";
 
 function BooksList() {
-    //BooksFeatures
+    // BooksFeatures
     const bookCards = useSelector(state => state.books.bookCards);
     const bookQuantity = useSelector(state => state.books.bookQuantity);
     const residualBookQuantity = useSelector(state => state.books.paginationOptions.residualBookQuantity);
-    //State to display the spinner
+    // State to display the spinner
     const isLoading = useSelector(state => state.books.isLoading);
 
     return (

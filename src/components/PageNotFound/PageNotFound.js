@@ -1,7 +1,7 @@
 import React from 'react';
-//Navigation
+// Navigation
 import { Link } from 'react-router-dom';
-//StylesAndContent
+// StylesAndContent
 import './PageNotFound.css';
 
 function PageNotFound() {

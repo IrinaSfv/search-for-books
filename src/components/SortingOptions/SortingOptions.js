@@ -1,21 +1,21 @@
 import React from "react";
 import { useState } from "react";
-//StylesAndContent
+// StylesAndContent
 import './SortingOptions.css';
-//ReduxStates
+// ReduxStates
 import { useSelector, useDispatch } from "react-redux";
 import { setSortOptionValue } from '../../redux/slices/booksSlice'
 
 function SortingOptions() {
-    //Current sort value
+    // Current sort value
     const sortValue = useSelector(state => state.books.sortOptionValue);
-    //Value for display on the page
+    // Value for display on the page
     const [selectedValue, setSelectedValue] = useState(sortValue);
 
-    //Change states
+    // Change states
     const dispatch = useDispatch();
 
-    //Change the value on the page and send a new request to the server with a new order
+    // Change the value on the page and send a new request to the server with a new order
     function handleChangeSelect(e) {
         setSelectedValue(e.target.value);
         dispatch(setSortOptionValue(e.target.value));
