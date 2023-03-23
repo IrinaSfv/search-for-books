@@ -33,7 +33,6 @@ function App() {
     dispatch(setIsLoading(true));
     api.getBooks(searchQuery, categoryValue, sortValue, startIndex)
       .then((res) => {
-        console.log(res);
         //TODO: use the eliminateDuplicatesById function to set only unique BookCards
         dispatch(setBookCards(res.items));
         dispatch(setBookQuantity(res.totalItems));

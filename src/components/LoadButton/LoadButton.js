@@ -35,7 +35,6 @@ function LoadButton() {
     dispatch(setIsLoading(true));
     api.getBooks(searchQuery, categoryValue, sortValue, startIndex)
       .then((res) => {
-        console.log(res);
         dispatch(setBookCards(bookCards.concat(res.items)));
       })
       .catch((err) => {
