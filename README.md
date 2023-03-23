@@ -25,6 +25,9 @@
 * `Detail page`: when user clicks on a book card they goes to a detailed page of the book. 
 * `Page not found`: if book page doesn't exist, user will be redirected to the 404 error page. 
 
+## Tests
+[Manual testing of the app was used.](https://docs.google.com/document/d/1Pc-qX6wSruicfRdPr4_ty3Y2hVdYhFeILENBwgtZcM4/edit?usp=sharing)
+
 ---
 
 In this project, I've:
@@ -44,3 +47,8 @@ In this project, I've:
 ## Usage
 You can view the current version of the page by following the link:
 ### [Search for books](https://irinasfv.github.io/search-for-books/)
+
+## To-do
+* Move the app completely to the `TypeScript`.
+* Use `Docker` to run the app in a container.
+* Fix the bugs on the client side identified during testing.
